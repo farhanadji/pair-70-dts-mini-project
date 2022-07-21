@@ -3,7 +3,7 @@ import { CardMedia } from "@mui/material";
 import { StyledEngineProvider, CssVarsProvider } from "@mui/joy/styles";
 import CardCover from "@mui/joy/CardCover";
 
-const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
+const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/w185";
 
 const BigMovieCard = ({ movie }) => {
   return (

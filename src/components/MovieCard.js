@@ -5,7 +5,7 @@ import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/material/Typography";
 import { StyledEngineProvider, CssVarsProvider } from "@mui/joy/styles";
 
-const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
+const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/w185";
 
 const MovieCard = ({
   movie,

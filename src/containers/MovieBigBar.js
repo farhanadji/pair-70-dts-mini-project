@@ -18,6 +18,7 @@ const MovieBigBar = ({ title, query }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   return (

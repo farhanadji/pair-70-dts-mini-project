@@ -19,6 +19,7 @@ const MovieBar = ({ title, query }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   return (
