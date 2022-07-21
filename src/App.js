@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import { Route, Routes } from "react-router-dom";
 import CategoryDetailPage from "./pages/CategoryDetailPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,9 +18,7 @@ function App() {
           <Route path="/detail/:id" element={<MovieDetailPage />} />
           <Route path="/category" element={<CategoryDetailPage />} />
         </Routes>
-        {/* <MovieDetailPage /> */}
-        {/* <MovieBar /> */}
-        {/* <MovieList></MovieList> */}
+        <Footer />
       </div>
     </ThemeProvider>
   );
