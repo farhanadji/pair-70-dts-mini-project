@@ -27,7 +27,7 @@ const MovieDetailPage = () => {
   return (
     <Box>
       <MovieDetailHeader movie={movie} />
-      <Container sx={{ mt: 5 }}>
+      <Container sx={{ mt: 5, minHeight: "800px" }}>
         <Box
           sx={{
             display: "flex",
