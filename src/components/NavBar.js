@@ -4,17 +4,28 @@ import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 const navItems = ["Account"];
 
 const Navbar = () => {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", alignItems: "center" }}>
       <AppBar component="nav">
         <Toolbar>
-          <Typography variant="h4" component="div" sx={{ mr: "auto" }}>
-            Netflux
-          </Typography>
+          <Box sx={{ display: "flex", mr: "auto" }}>
+            <Link
+              style={{
+                fontWeight: "bold",
+                fontSize: "30px",
+                color: "#fff",
+                textDecoration: "none",
+              }}
+              to="/"
+            >
+              Netflux
+            </Link>
+          </Box>
           <Box sx={{ display: "block" }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: "#fff" }}>

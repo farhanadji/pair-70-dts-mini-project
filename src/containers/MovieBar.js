@@ -1,5 +1,6 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import fetchedMovies from "../services/fetchedMovies";
 
@@ -23,8 +24,11 @@ const MovieBar = () => {
           </Typography>
         </Box>
         <Box>
-          <Link href="#" underline="hover" sx={{ color: "#fff" }}>
-            See more
+          <Link
+            to="/category"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            See more >
           </Link>
         </Box>
       </Box>

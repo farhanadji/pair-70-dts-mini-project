@@ -1,5 +1,6 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import BigMovieCard from "../components/BigMovieCard";
 import fetchedMovies from "../services/fetchedMovies";
 
@@ -22,8 +23,11 @@ const MovieBigBar = () => {
           </Typography>
         </Box>
         <Box>
-          <Link href="#" underline="hover" sx={{ color: "#fff" }}>
-            See more
+          <Link
+            to="/category"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            See more >
           </Link>
         </Box>
       </Box>
