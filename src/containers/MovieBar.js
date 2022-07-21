@@ -56,7 +56,10 @@ const MovieBar = ({ title, query }) => {
         }}
       >
         {movies.map((movie) => (
-          <Link to="/detail">
+          <Link
+            to={`/detail/${movie.id}`}
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
             <MovieCard
               key={movie.id}
               movie={movie}

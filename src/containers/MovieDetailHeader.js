@@ -4,7 +4,7 @@ import { Box, CardMedia, Container, Typography } from "@mui/material";
 import { StyledEngineProvider, CssVarsProvider } from "@mui/joy/styles";
 import CardCover from "@mui/joy/CardCover";
 
-const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
+const BASE_IMAGE_URL = "http://image.tmdb.org/t/p";
 
 const MovieDetailHeader = ({ movie }) => {
   return (
@@ -16,7 +16,11 @@ const MovieDetailHeader = ({ movie }) => {
               display: "flex",
               width: "100%",
               height: 400,
-              background: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 400px), url(${BASE_IMAGE_URL}${movie.backdrop_path})`,
+              background: `${
+                movie.backdrop_path
+                  ? `linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 400px), url(${BASE_IMAGE_URL}/w780${movie.backdrop_path})`
+                  : `linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 400px), url("/not_found.png")`
+              }`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               alignItems: "center",
@@ -38,7 +42,11 @@ const MovieDetailHeader = ({ movie }) => {
                 <CardCover>
                   <CardMedia
                     component="img"
-                    image={`${BASE_IMAGE_URL}${movie.poster_path}`}
+                    image={
+                      movie.poster_path
+                        ? `${BASE_IMAGE_URL}/w185${movie.poster_path}`
+                        : "/not_found.png"
+                    }
                   />
                 </CardCover>
               </Card>
@@ -55,10 +63,10 @@ const MovieDetailHeader = ({ movie }) => {
                 variant="h1"
                 sx={{ color: "#fff", fontWeight: "bold" }}
               >
-                {movie.original_title}
+                {movie.original_title ? movie.original_title : "-"}
               </Typography>
               <Typography variant="h4" sx={{ color: "#fff" }}>
-                {movie.tagline}
+                {movie.tagline ? movie.tagline : "-"}
               </Typography>
 
               <Box
@@ -68,11 +76,13 @@ const MovieDetailHeader = ({ movie }) => {
                   gap: 1,
                 }}
               >
-                {movie.genres.map((item) => (
-                  <Chip color="neutral" key={item.id}>
-                    {item.name}
-                  </Chip>
-                ))}
+                {movie.genres
+                  ? movie.genres.map((item) => (
+                      <Chip color="neutral" key={item.id}>
+                        {item.name}
+                      </Chip>
+                    ))
+                  : ""}
               </Box>
             </Box>
           </Box>

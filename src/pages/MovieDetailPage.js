@@ -1,11 +1,28 @@
 import { Box, Container, Typography } from "@mui/material";
-import { useState } from "react";
-import movieDetail from "../services/movieDetail";
+import { useEffect, useState } from "react";
 import MovieDetailHeader from "../containers/MovieDetailHeader";
+import { useParams } from "react-router-dom";
+import tmdb from "../services/tmdb";
 
 const MovieDetailPage = () => {
   // eslint-disable-next-line
-  const [movie, setMovie] = useState(movieDetail);
+  const [movie, setMovie] = useState({});
+
+  let params = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedMovies = await tmdb.get(`movie/${params?.id}`);
+        setMovie(fetchedMovies.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Box>
@@ -23,7 +40,7 @@ const MovieDetailPage = () => {
           </Typography>
 
           <Typography variant="h6" sx={{ color: "#fff", textAlign: "left" }}>
-            {movie.overview}
+            {movie.overview ? movie.overview : "-"}
           </Typography>
         </Box>
       </Container>
