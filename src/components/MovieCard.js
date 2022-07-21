@@ -31,7 +31,11 @@ const MovieCard = ({
           <CardCover>
             <CardMedia
               component="img"
-              image={`${BASE_IMAGE_URL}${movie.poster_path}`}
+              image={
+                movie.poster_path
+                  ? `${BASE_IMAGE_URL}${movie.poster_path}`
+                  : "/not_found.png"
+              }
             />
           </CardCover>
           <CardCover
@@ -42,7 +46,7 @@ const MovieCard = ({
           />
           <CardContent sx={{ justifyContent: "flex-end" }}>
             <Typography variant={fontVariant} fontSize="lg" color="#fff" mb={1}>
-              {movie.original_title}
+              {movie.original_title ? movie.original_title : "-"}
             </Typography>
           </CardContent>
         </Card>

@@ -25,7 +25,11 @@ const BigMovieCard = ({ movie }) => {
           <CardCover>
             <CardMedia
               component="img"
-              image={`${BASE_IMAGE_URL}${movie.poster_path}`}
+              image={
+                movie.poster_path
+                  ? `${BASE_IMAGE_URL}${movie.poster_path}`
+                  : "/not_found.png"
+              }
             />
           </CardCover>
         </Card>

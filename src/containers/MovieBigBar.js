@@ -1,12 +1,25 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BigMovieCard from "../components/BigMovieCard";
-import fetchedMovies from "../services/fetchedMovies";
+import tmdb from "../services/tmdb";
 
-const MovieBigBar = () => {
-  // eslint-disable-next-line
-  const [movies, setMovies] = useState(fetchedMovies.results);
+const MovieBigBar = ({ title, query }) => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedMovies = await tmdb.get(`${query}`);
+        setMovies(fetchedMovies.data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Box sx={{ m: 5 }}>
       <Box
@@ -20,7 +33,7 @@ const MovieBigBar = () => {
       >
         <Box>
           <Typography variant="h5" sx={{ color: "#fff" }}>
-            Trending
+            {title}
           </Typography>
         </Box>
         <Box>
