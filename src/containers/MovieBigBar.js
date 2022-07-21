@@ -5,6 +5,7 @@ import BigMovieCard from "../components/BigMovieCard";
 import fetchedMovies from "../services/fetchedMovies";
 
 const MovieBigBar = () => {
+  // eslint-disable-next-line
   const [movies, setMovies] = useState(fetchedMovies.results);
   return (
     <Box sx={{ m: 5 }}>
@@ -39,7 +40,9 @@ const MovieBigBar = () => {
         }}
       >
         {movies.map((movie) => (
-          <BigMovieCard key={movie.id} movie={movie}></BigMovieCard>
+          <Link to="/detail">
+            <BigMovieCard key={movie.id} movie={movie}></BigMovieCard>
+          </Link>
         ))}
       </Box>
     </Box>

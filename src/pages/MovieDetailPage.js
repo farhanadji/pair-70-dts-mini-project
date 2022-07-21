@@ -1,11 +1,10 @@
-import { Box, CardMedia, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useState } from "react";
 import movieDetail from "../services/movieDetail";
 import MovieDetailHeader from "../containers/MovieDetailHeader";
 
-const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
-
 const MovieDetailPage = () => {
+  // eslint-disable-next-line
   const [movie, setMovie] = useState(movieDetail);
 
   return (

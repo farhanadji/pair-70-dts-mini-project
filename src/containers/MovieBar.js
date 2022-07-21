@@ -1,10 +1,11 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import fetchedMovies from "../services/fetchedMovies";
 
 const MovieBar = () => {
+  // eslint-disable-next-line
   const [movies, setMovies] = useState(fetchedMovies.results);
 
   return (
@@ -41,12 +42,14 @@ const MovieBar = () => {
         }}
       >
         {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            size={{ width: 200, height: 110 }}
-            fontVariant="h7"
-          ></MovieCard>
+          <Link to="/detail">
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              size={{ width: 200, height: 110 }}
+              fontVariant="h7"
+            ></MovieCard>
+          </Link>
         ))}
       </Box>
     </Box>

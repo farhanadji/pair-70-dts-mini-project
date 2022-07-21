@@ -4,6 +4,7 @@ import MovieList from "../containers/MovieList";
 import fetchedMovies from "../services/fetchedMovies";
 
 const CategoryDetailPage = () => {
+  // eslint-disable-next-line
   const [movies, setMovies] = useState(fetchedMovies.results);
   return (
     <Box>

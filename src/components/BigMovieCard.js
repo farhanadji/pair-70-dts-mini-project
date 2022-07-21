@@ -1,5 +1,5 @@
 import Card from "@mui/joy/Card";
-import { Box, CardMedia } from "@mui/material";
+import { CardMedia } from "@mui/material";
 import { StyledEngineProvider, CssVarsProvider } from "@mui/joy/styles";
 import CardCover from "@mui/joy/CardCover";
 

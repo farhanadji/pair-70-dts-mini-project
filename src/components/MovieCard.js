@@ -1,4 +1,4 @@
-import { Box, CardMedia } from "@mui/material";
+import { CardMedia } from "@mui/material";
 import CardCover from "@mui/joy/CardCover";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -25,7 +25,6 @@ const MovieCard = ({
               transition: "all 0.2s",
               cursor: "pointer",
               transform: "scale(1.1)",
-              boxShadow: "none",
             },
           }}
         >
